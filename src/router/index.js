@@ -4,9 +4,9 @@ import HelloWorld from '@/components/HelloWorld'
 import Index from '@/components/index'
 import Login from '@/components/login'
 Vue.use(Router)
-const red = { template: '<div style="background-color:#de5b5b;color:#fff; font-size:30px;line-height:100px;text-align:center;">red页面</div>' }
-const yellow = { template: '<div style="background-color:#dee066;color:#fff; font-size:30px;line-height:100px;text-align:center;">yellow页面</div>' }
-const blue = { template: '<div style="background-color:#6680e0;color:#fff; font-size:30px;line-height:100px;text-align:center;">blue页面</div>' }
+const red = { template: '<div style="background-color:#de5b5b;color:#fff; font-size:30px;line-height:100px;text-align:center;margin-top:20px">red页面</div>' }
+const yellow = { template: '<div style="background-color:#dee066;color:#fff; font-size:30px;line-height:100px;text-align:center;margin-top:20px">yellow页面</div>' }
+const blue = { template: '<div style="background-color:#6680e0;color:#fff; font-size:30px;line-height:100px;text-align:center;margin-top:20px">blue页面</div>' }
 const instance = new Router({
   routes: [
     {
@@ -36,17 +36,23 @@ export const powerRouter = [
       {
         path:"/yellow",
         name:"yellow",
-        component:yellow
+        component:yellow,
+        meta:{
+          role:'B'
+        }
       },
       {
         path:"/blue",
         name:'blue',
-        component:blue
+        component:blue,
+        meta:{
+          role:'C'
+        }
       }
     ]
   }
 ]
-instance.addRoutes(powerRouter)
+//instance.addRoutes(powerRouter)
 
 
 

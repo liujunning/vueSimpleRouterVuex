@@ -18,16 +18,16 @@
         data(){
           return {
             loginfrom:{
-              username:'adan',
-              pew:'123456'
+              username:'',
+              pew:''
             }
           }
         },
         methods:{
           submituUserInfo(data){
-          // this.$store.state.login.hello = '借款人'
+              this.$store.state.login.hello = '三先天';
               this.$store.dispatch('LoginsTom',data).then(res=>{
-                
+                this.$router.push({path:'/'});                                                                                                                                                                                                                                                
               }).catch(()=>{
 
               })

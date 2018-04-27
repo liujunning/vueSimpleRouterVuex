@@ -31,13 +31,11 @@ const login = {
                 let data = {} ;
                 loginByUserInfo.map(function(item){ //获取所有用户信息
                    // item.pew = item.pew.toString();
-                   console.log(info.username == item.username || info.pew == item.pew)
-                    if( info.username == item.username || info.pew == item.pew ){
-                        console.log(item.username)
+                    if( info.username == item.username && info.pew == item.pew ){
                         commit('SET_USERNAME',item.username);  //将username和role进行存储
                         sessionStorage.setItem('USERNAME',item.username);
                         commit('SET_ROLE',item.role);
-                        commit('KILL','我是谁')
+                       // commit('KILL','四无君')
                         sessionStorage.setItem('ROLE',item.role);
                         return data = { username:item.username,introduce:item.intriduce };
                     }else{
@@ -48,6 +46,25 @@ const login = {
             }).catch(error=>{
                 reject(error)
             })
+        },
+        Roles({ commit },newrouter){
+            return new Promise((resolve,reject)=>{
+                commit('SET_NEWROUTER',newrouter);
+                resolve(newrouter)
+            }).catch((error)=>{
+                reject(error)
+            })
+        },
+        logout({ commit }){
+            return new Promise((resolve,reject)=>{
+                commit('SET_USERNAME','');
+                commit('SET_ROLE','');
+                commit('SET_NEWROUTER',[])
+                location.reload();
+                sessionStorage.removeItem('USERNAME');
+                sessionStorage.removeItem('ROLE');
+                resolve();
+            }).catch()
         }
     }
 }
